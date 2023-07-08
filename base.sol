@@ -20,7 +20,7 @@ contract InflationToken is IERC20 {
     uint256 private constant BLOCKS_PER_YEAR = 2102400;
 
     constructor() {
-        name = "Inflation Token";
+        name = "MyToken";
         symbol = "INF";
         decimals = 18;
         totalSupply = INITIAL_SUPPLY;
@@ -31,7 +31,7 @@ contract InflationToken is IERC20 {
         uint256 currentBlock = block.number;
 
         if (currentBlock < INFLATION_START_BLOCK) {
-            inflationAmount = 10833330000000000000; // 10.83333 tokens * 10^18
+            inflationAmount = 10.833330000000000000; // 10.83333 tokens * 10^18
         } else {
             uint256 blocksSinceStart = currentBlock.sub(INFLATION_START_BLOCK);
             uint256 yearsSinceStart = blocksSinceStart.div(BLOCKS_PER_YEAR);
