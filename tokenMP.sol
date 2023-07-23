@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract TokenWithMonetaryPolicy is ERC20, Ownable {
+contract Token is ERC20, Ownable {
     uint256 public constant INCREASE_AMOUNT_PER_CYCLE = 1000000; // 1 million blocks
     uint256 public constant INCREASE_AMOUNT = 1000; // 0.10% in basis points (0.10 * 10**4)
     uint256 public constant MAX_INCREASE_CYCLES = 30;
@@ -11,7 +11,7 @@ contract TokenWithMonetaryPolicy is ERC20, Ownable {
     uint256 public lastIncreaseBlock;
     uint256 public currentIncreaseCycle;
 
-    constructor() ERC20("TokenWithMonetaryPolicy", "TOK") {
+    constructor() ERC20("Token", "TOK") {
         lastIncreaseBlock = block.number;
         _mint(owner(), 0); // Mint 0 tokens initially
     }
